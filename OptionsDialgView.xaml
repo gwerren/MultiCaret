@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="MultiCaret.OptionsDialgView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MultiCaret"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400" 
+             d:DataContext="{d:DesignInstance local:OptionsDialgViewModel, d:IsDesignTimeCreatable=False}">
+    <GroupBox Header="Multi-Caret General Settings">
+        <DockPanel>
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Margin="3">
+                    Mouse multi-select modifier key:
+                </Label>
+                <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AllMouseAddKeys}"
+                          SelectedItem="{Binding SelectedMouseAddKey}"
+                          DisplayMemberPath="Name"
+                          VerticalContentAlignment="Center" Margin="3" />
+                <Label Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Margin="3">
+                    Temp File Language:
+                </Label>
+                <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AllTempFileLanguages}"
+                          SelectedItem="{Binding TempFileLanguage}"
+                          VerticalContentAlignment="Center" Margin="3" />
+            </Grid>
+            <Grid />
+        </DockPanel>
+    </GroupBox>
+</UserControl>
